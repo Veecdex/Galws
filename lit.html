@@ -15,35 +15,61 @@
 
     html, body {
       font-family: 'Poppins', sans-serif;
-      background: #000;
+      background: rgb(253, 253, 253);
       color: #fff;
       width: 100%;
       height: 100%;
     }
 
     .gallery {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-auto-rows: 33vw;
-      width: 100vw;
-      overflow-x: hidden;
-      grid-auto-flow: dense;
-    }
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 33vw;
+  width: 100vw;
+  overflow-x: hidden;
+  grid-auto-flow: dense;
+  gap: 5px; /* Added space between items */
+  padding: 5px; /* Optional: adds padding around the gallery */
+}
+/* Mobile first */
+.gallery {
+  grid-template-columns: repeat(2, 1fr); /* 2 columns for smaller screens */
+  grid-auto-rows: 40vw;
+}
 
-    .item {
-      position: relative;
-      overflow: hidden;
-      width: 100%;
-      height: 100%;
-    }
+/* Tablets and up */
+@media (min-width: 600px) {
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 33vw;
+  }
+}
 
-    .item img,
-    .item video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
+/* Large screens */
+@media (min-width: 769px) {
+  .gallery {
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: 150px;
+  }
+}
+
+.item {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px; /* Added rounded corners */
+}
+
+.item img,
+.item video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 12px; /* Ensure media also has rounded corners */
+}
+
 
     /* Sizes */
     .big {
@@ -79,37 +105,25 @@
     .location svg {
       width: 14px;
       height: 14px;
-      color: #ff5e5e;
+      color: #5e61ff;
     }
 
     @media (min-width: 769px) {
-      .gallery {
-        grid-template-columns: repeat(6, 1fr);
-        grid-auto-rows: 150px;
-      }
+  .gallery {
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: 150px;
+    gap: 12px; /* Keep spacing consistent on larger screens */
+    padding: 12px;
+  }
+}
 
-      .big {
-        grid-column: span 4;
-        grid-row: span 2;
-      }
-
-      .medium {
-        grid-column: span 2;
-        grid-row: span 2;
-      }
-
-      .small {
-        grid-column: span 2;
-        grid-row: span 1;
-      }
-    }
 
     .top-nav {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  background: rgba(243, 239, 239, 0.924);
+  background: rgba(255, 255, 255, 0.986);
   color: #000;
   display: flex;
   justify-content: space-between;
@@ -164,8 +178,8 @@
 }
 
 .bottom-nav .nav-item.active {
-  color: #000;
-  font-weight: 600;
+  color: #0f118b;
+  font-weight: 900;
 }
 
 body {
@@ -177,10 +191,7 @@ body {
   font-weight: 700;
   font-size: 22px;
   letter-spacing: 1px;
-  background: linear-gradient(90deg, #1f1f1f, #4e4e4e);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-transform: uppercase;
+  color: #0f118b;
 }
 
 
@@ -188,7 +199,7 @@ body {
 </head>
 <body>
   <div class="top-nav">
-    <div class="brand">Wiesel</div>
+    <div class="brand">WIESEL</div>
     <div class="icons">
       <i data-lucide="bookmark"></i>
       <i data-lucide="mic"></i>
@@ -196,7 +207,7 @@ body {
   </div>
 
   <div class="gallery">
-    <div class="item big">
+    <div class="item medium">
       <img src="images/whandbag.JPG" alt="Handbag">
       <div class="location"><i data-lucide="map-pin"></i> Ikeja</div>
     </div>
@@ -204,16 +215,16 @@ body {
       <img src="images/sneakers.JPG" alt="Sneakers">
       <div class="location"><i data-lucide="map-pin"></i>Yaba</div>
     </div>
-    <div class="item small">
+    <div class="item big">
       <img src="images/tidietshirt.JPG" alt="T-shirt">
       <div class="location"><i data-lucide="map-pin"></i> Iyana ipaja</div>
     </div>
     <div class="item medium">
-      <video src="bkgvid.mp4" autoplay muted loop></video>
+      <img src="images/cloth_1.jpg" alt="cloth">
       <div class="location"><i data-lucide="map-pin"></i> oshodi</div>
     </div>
     <div class="item small">
-      <img src="images/jollof.JPG" alt="Jollof">
+      <img src="images/handbag.JPG" alt="Jollof">
       <div class="location"><i data-lucide="map-pin"></i> agege</div>
     </div>
     <div class="item small">
@@ -222,11 +233,11 @@ body {
     </div>
     <!-- More samples -->
     <div class="item small">
-      <img src="images/fowe.png" alt="Shoes">
+      <img src="images/children.jpg" alt="Shoes">
       <div class="location"><i data-lucide="map-pin"></i> Lekki</div>
     </div>
     <div class="item medium">
-      <img src="images/samosa.jpg" alt="Bag">
+      <img src="images/Air.JPG" alt="Bag">
       <div class="location"><i data-lucide="map-pin"></i> ikeja</div>
     </div>
     <div class="item small">
